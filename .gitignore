@@ -1,0 +1,11 @@
+.idea/
+Build/
+Library/
+Logs/
+obj/
+Temp/
+Assets/CityPack
+Packages/com.unity.asset-store-tools/
+*.csproj
+*.png
+*.sln
