@@ -6,14 +6,14 @@ using UnityEngine.InputSystem;
 public class AquaPower : MonoBehaviour
 {
     public GameObject projectilePrefab; // Referencia al prefab del proyectil
-    public Transform shootingPoint; // Punto desde el cual se dispararán los proyectiles
+    public Transform shootingPoint; // Punto desde el cual se dispararï¿½n los proyectiles
     public float shootingForce = 1500f; // Fuerza de disparo del proyectil
 
     private InputAction shootAction;
 
     void Awake()
     {
-        // Crea la acción de disparo y asocia el evento al método correspondiente
+        // Crea la acciï¿½n de disparo y asocia el evento al metodo correspondiente
         shootAction = new InputAction(binding: "<Mouse>/leftButton");
         shootAction.performed += _ => ShootProjectile();
     }
@@ -34,7 +34,7 @@ public class AquaPower : MonoBehaviour
         {
             // Instancia el proyectil en el punto de disparo
             GameObject projectile = Instantiate(projectilePrefab, shootingPoint.position, shootingPoint.rotation);
-            // Añade una fuerza al Rigidbody del proyectil para dispararlo
+            // Aï¿½ade una fuerza al Rigidbody del proyectil para dispararlo
             Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
             if (projectileRigidbody)
             {

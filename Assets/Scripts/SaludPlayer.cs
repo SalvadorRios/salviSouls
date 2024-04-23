@@ -7,6 +7,7 @@ public class SaludPlayer : MonoBehaviour
     public int maxHealth = 100;
     public Transform spawnPoint; // Punto de respawn del jugador
     private int currentHealth;
+    public List<ParticleSystem> particleSystems; 
 
     void Start()
     {
@@ -15,6 +16,7 @@ public class SaludPlayer : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        TriggerDestructionEffects(); // Llama al m√©todo para activar los efectos
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -24,8 +26,19 @@ public class SaludPlayer : MonoBehaviour
 
     void Respawn()
     {
-        currentHealth = maxHealth; // Restablece la salud a su valor m·ximo
+        currentHealth = maxHealth; // Restablece la salud a su valor mÔøΩximo
         transform.position = spawnPoint.position; // Mueve al jugador al punto de respawn
-        // Agrega aquÌ cualquier otra lÛgica necesaria para el respawn, como animaciones o efectos
+        // Agrega aquÔøΩ cualquier otra lÔøΩgica necesaria para el respawn, como animaciones o efectos
+        
+    }
+    
+    public void TriggerDestructionEffects()
+    {
+        particleSystems[0].transform.parent.position = transform.position; // Establece la posici√≥n de la luz
+        foreach (var particleSystem in particleSystems)
+        {
+            particleSystem.Play(); // Inicia cada sistema de part√≠culas
+                
+        }
     }
 }
